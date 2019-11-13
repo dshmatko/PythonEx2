@@ -6,9 +6,8 @@ f = open(filename, 'r')
 phrases = [", yeah!", ", this is crazy, I tell ya.", ", can U believe this?",
            ", eh?", ", aw yea.", ", yo.", "? No way!", ". Awesome!"]
 for line in f:
-    #    print(line, end="")
+    print(line, end="")
     li = line.split(".")
-#    print(li)
-    for sentence in li:
-        sentence += random.choice(phrases)
-        print(sentence)
+    print(li)
+    r = random.choice(phrases).join(li)
+    print(r)
