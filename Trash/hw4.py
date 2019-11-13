@@ -1,11 +1,24 @@
 from random import sample
 import sys
 import random
-import numpy as np
+
+
+def fizz_buzz(fizz, buzz, number):
+    for i in range(1, number+1):
+        if i % fizz == 0:
+            write_file.write("F")
+        if i % buzz == 0:
+            write_file.write("B")
+        if not i % fizz == 0 and i % buzz:
+            write_file.write(str(i))
+        write_file.write(" ")
+    write_file.write("\n")
+
 
 filename = sys.argv[1]
 
 file_with_numbers = open(filename, 'w')
+write_file = open('result.txt', 'w')
 
 
 for _ in range(20):
@@ -17,24 +30,10 @@ for _ in range(20):
 file_with_numbers.close()
 
 
-def fizz_buzz(fizz, buzz, number):
-    write_file = open('result.txt', 'w')
-    for line in file_with_numbers:
-        #        counters = line.split()
-        #        counters = list(map(int, counters))
-        for i in range(1, number+1):
-            if i % fizz == 0:
-                write_file.write("F")
-            if i % buzz == 0:
-                write_file.write("B")
-            if not i % fizz == 0 and i % buzz:
-                write_file.write(str(i))
-            write_file.write(" ")
-        write_file.write("\n")
-
-
 file_with_numbers = open(filename, 'r')
 for line in file_with_numbers:
     li = line.split()
-    print(li)
     fizz_buzz(int(li[0]), int(li[1]), int(li[2]))
+
+file_with_numbers.close()
+write_file.close()
