@@ -15,5 +15,8 @@ def number(my_number):
 
 nums = [1, 2, 3, 34, 17, 29, 6, 12, 3, 4, 67, 98, 32, 5, 65, 7, 5, 4]
 
-[print(f(num), end=" ") for num in nums]
-print()
+# [print(f(num), end=" ") for num in nums]
+
+nums = list(map(f, nums))
+
+print(nums)
