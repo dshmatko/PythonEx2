@@ -237,3 +237,18 @@ journal_db=# SELECT DISTINCT  UPPER (teachers.last_name) as prepod, students.id 
  SIDOROV |  9 | Nikolay    | Petrov
 (9 rows)
 
+journal_db=# SELECT DISTINCT  students.id, teachers.last_name || ' ' || upper (left(teachers.first_name,1)) || '.' as prepod, students.last_name || ' ' || upper (left(students.last_name,1)) || '.' as Student FROM students INNER JOIN classes ON students.class_id = classes.id LEFT JOIN teachers ON classes.classroom_teacher = teachers.id ORDER BY students.id ;
+;
+ id |   prepod   |   student    
+----+------------+--------------
+  1 | Petrov I.  | Laktionov L.
+  2 | Petrov I.  | Novikov N.
+  3 | Sidorov A. | Petrov P.
+  4 | Petrov I.  | Laktionov L.
+  5 | Petrov I.  | Novikov N.
+  6 | Sidorov A. | Petrov P.
+  7 | Petrov I.  | Laktionov L.
+  8 | Petrov I.  | Novikov N.
+  9 | Sidorov A. | Petrov P.
+(9 rows)
+
