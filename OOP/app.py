@@ -2,7 +2,7 @@ from models.candidate import Candidate
 from models.programmer import Programmer
 from models.recruiter import Recruiter
 from models.vacancy import Vacancy
-
+from models.employee import Employee
 
 P1 = Programmer("Julien Limeul", "ejull@gmail.com", "03044040440", 300)
 P1.tech_stack = ["Perl", "C++", "Java"]
@@ -20,3 +20,8 @@ C3 = Candidate("Oleksii kozakevych", "sap3r@gmail.com",
 
 V1 = Vacancy("Junior Java Programmer", "Lua", 5)
 V2 = Vacancy("Senior OpenStack Dev", "Python", 19)
+
+
+print(P1.prop)
+print(P2.chk_workdays())
+print(Employee.chk_workdays())

@@ -11,7 +11,7 @@ class Employee:
     def work(self):
         return "I come to the office"
 
-    def check_salary(self, days):
+    def check_salary(self, days=None):
         now = date.today()
         month_start = date(now.year, now.month, 1)
         weekend = [5, 6]
@@ -39,3 +39,16 @@ class Employee:
 
     def __neq__(self, other):
         return self.salary_day != other.salary_day
+
+    @property
+    def prop(self):
+        return f"{self.__class__.__name__} {self.full_name} {str(self.check_salary())}"
+
+    @staticmethod
+    def chk_workdays():
+        now = date.today()
+        month_start = date(now.year, now.month, 1)
+        weekend = [5, 6]
+        diff = (now - month_start).days + 1
+        day_count = len([x for x in range(diff) if x not in weekend])
+        return day_count
